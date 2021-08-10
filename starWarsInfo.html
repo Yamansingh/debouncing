@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>info page</title>
+    <style>
+        *{
+            background-color: black;
+        }
+        #cont{
+            width: 50vw;
+            margin: 100px auto;
+            padding: 5vw;
+            text-align: center;
+           border: 2px solid red;
+            color: red;
+        }
+        #boxes{
+            display: flex;
+            width: 26vw;
+            margin: auto;
+        }
+        #boxes > div{
+                margin: 20px;
+                border: 2px solid red;
+                border-radius: 5px;
+        }
+        #btn > a{
+            text-decoration: none;
+            color: red;
+        }
+        #btn{
+            border: 1px solid rgb(255, 47, 151);
+            width: 100px;
+            margin: auto;
+            border-radius: 5px;
+            font-size: 24px;
+            color: red;
+        }
+        #boxes > div :hover{
+            color: white;
+            border: 1px solid white;
+        }
+        #btn :hover{
+            border: 1px solid white;
+        }
+    </style>
+</head>
+<body>
+      <div id="cont">
+          <h1 id="name"></h1>
+          <div id="boxes">
+          <div id="box1" class="box"><h3>Personal Info</h3></div>
+          <div id="box2" class="box"><h3>Anatomy</h3></div> 
+        </div>
+          <div id="btn">
+              <a href="./star-wars.html"> Go Back</a>
+          </div>
+
+      </div>
+</body>
+</html>
+<script>
+    let data = localStorage.getItem("products")
+    data = JSON.parse(data);
+    console.log(data);
+    data.forEach(({name,height,birth_year,created,edited,eye_color,gender,skin_color}) => {
+        let h = document.getElementById("name")
+        h.innerHTML = name;
+        let box1 = document.getElementById("box1")
+        let box2 = document.getElementById("box2")
+        let p1 = document.createElement("p")
+        let p2 = document.createElement("p")
+        let p3 = document.createElement("p")
+        p1.innerHTML = `Birth Year : ${birth_year}`
+        p2.innerHTML = `Gender : ${birth_year}`
+        p3.innerHTML = `Height : ${birth_year}`
+        box1.append(p1,p2,p3);
+
+        let p4 = document.createElement("p")
+        let p5 = document.createElement("p")
+        let p6 = document.createElement("p")
+        p4.innerHTML = `eye color : ${birth_year}`
+        p5.innerHTML = ` created: ${birth_year}`
+        p6.innerHTML = `skin color : ${birth_year}`
+        box2.append(p4,p5,p6);
+
+        
+    });
+
+
+</script>
